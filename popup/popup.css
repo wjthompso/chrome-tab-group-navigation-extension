@@ -1,0 +1,71 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+body#tab-group-nav-popup-body {
+  margin: 0;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 12px 14px 14px;
+}
+
+#tab-group-nav-popup-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+#tab-group-nav-popup-subtitle {
+  color: color-mix(in srgb, CanvasText 65%, transparent);
+  font-size: 12px;
+  margin: 0 0 12px;
+}
+
+#tab-group-nav-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tab-group-nav-group-button {
+  align-items: center;
+  background: color-mix(in srgb, Canvas 92%, CanvasText 8%);
+  border: 1px solid color-mix(in srgb, CanvasText 12%, transparent);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  padding: 8px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.tab-group-nav-group-button:hover {
+  border-color: color-mix(in srgb, CanvasText 22%, transparent);
+}
+
+.tab-group-nav-color-swatch {
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 12px;
+  width: 12px;
+}
+
+.tab-group-nav-group-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#tab-group-nav-empty-state,
+#tab-group-nav-error-state {
+  font-size: 13px;
+  margin: 0;
+}

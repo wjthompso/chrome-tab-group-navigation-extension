@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab Group Navigation</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body id="tab-group-nav-popup-body">
+    <header id="tab-group-nav-popup-header">
+      <h1 id="tab-group-nav-popup-title">Tab groups</h1>
+      <p id="tab-group-nav-popup-subtitle">Select a group to focus its tabs.</p>
+    </header>
+    <main id="tab-group-nav-popup-main">
+      <ul id="tab-group-nav-group-list" aria-label="Tab groups in this window"></ul>
+      <p id="tab-group-nav-empty-state" hidden>No tab groups in this window.</p>
+      <p id="tab-group-nav-error-state" hidden role="alert"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
