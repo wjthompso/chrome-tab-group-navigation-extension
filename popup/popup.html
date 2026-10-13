@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tab Group Navigation</title>
-    <link rel="stylesheet" href="popup.css" />
+<html lang="en" id="tab-group-nav-root">
+  <head id="tab-group-nav-head">
+    <meta id="tab-group-nav-charset" charset="UTF-8" />
+    <meta id="tab-group-nav-viewport" name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="tab-group-nav-document-title">Tab Group Navigation</title>
+    <link id="tab-group-nav-stylesheet" rel="stylesheet" href="popup.css" />
   </head>
   <body id="tab-group-nav-popup-body">
     <header id="tab-group-nav-popup-header">
-      <h1 id="tab-group-nav-popup-title">Tab groups</h1>
-      <p id="tab-group-nav-popup-subtitle">Select a group to focus its tabs.</p>
+      <h1 id="tab-group-nav-popup-title">Tab Group Navigation</h1>
     </header>
-    <main id="tab-group-nav-popup-main">
-      <ul id="tab-group-nav-group-list" aria-label="Tab groups in this window"></ul>
+    <p id="tab-group-nav-open-group"></p>
+    <p id="status-message" role="status" aria-live="polite"></p>
+    <main id="tab-group-nav-popup-main" tabindex="-1">
+      <ul
+        id="tab-group-nav-group-list"
+        role="listbox"
+        aria-label="Tab groups in this window"
+        aria-describedby="tab-group-nav-key-hint"
+        tabindex="0"
+      ></ul>
       <p id="tab-group-nav-empty-state" hidden>No tab groups in this window.</p>
-      <p id="tab-group-nav-error-state" hidden role="alert"></p>
     </main>
-    <script type="module" src="popup.js"></script>
+    <section id="tab-group-nav-scenes">
+      <h2 id="tab-group-nav-scenes-heading">Tab scenes</h2>
+      <p id="tab-group-nav-scenes-note">Frozen until you overwrite the slot.</p>
+      <ol id="tab-group-nav-scene-list" aria-label="Tab scene slots"></ol>
+    </section>
+    <p id="tab-group-nav-key-hint">↑↓ highlight · ←→ move · Space collapse · R rename · Enter open · 1–9 open scene · Shift+1–9 save scene · Esc close</p>
+    <script id="tab-group-nav-popup-script" type="module" src="popup.js"></script>
   </body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "Tab Group Navigation",
+      "path": "."
+    }
+  ],
+  "settings": {
+		"workbench.colorCustomizations": {
+			"titleBar.activeBackground": "#ffc100",
+			"titleBar.activeForeground": "#1E3A5F",
+			"titleBar.inactiveBackground": "#ffc100",
+			"titleBar.inactiveForeground": "#4A5D73",
+			"titleBar.border": "#636363"
+		}
+  }
+}

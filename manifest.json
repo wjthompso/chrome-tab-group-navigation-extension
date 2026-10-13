@@ -1,9 +1,29 @@
 {
   "manifest_version": 3,
   "name": "Tab Group Navigation",
-  "version": "0.1.0",
-  "description": "Navigate between Chrome tab groups quickly from the toolbar.",
-  "permissions": ["tabGroups", "tabs"],
+  "version": "0.2.0",
+  "description": "Keyboard selector for tab groups in the current window.",
+  "permissions": ["tabGroups", "storage", "tabs"],
+  "commands": {
+    "group-by-domain": {
+      "description": "Group tabs by domain, title-case the name, and collapse"
+    },
+    "collapse-expand-all-groups": {
+      "description": "Collapse/expand all groups"
+    },
+    "collapse-expand-current-group": {
+      "description": "Collapse/expand the current tab group"
+    },
+    "open-tab-scene-1": { "description": "Open tab scene 1" },
+    "open-tab-scene-2": { "description": "Open tab scene 2" },
+    "open-tab-scene-3": { "description": "Open tab scene 3" },
+    "open-tab-scene-4": { "description": "Open tab scene 4" },
+    "open-tab-scene-5": { "description": "Open tab scene 5" },
+    "open-tab-scene-6": { "description": "Open tab scene 6" },
+    "open-tab-scene-7": { "description": "Open tab scene 7" },
+    "open-tab-scene-8": { "description": "Open tab scene 8" },
+    "open-tab-scene-9": { "description": "Open tab scene 9" }
+  },
   "action": {
     "default_title": "Tab Group Navigation",
     "default_popup": "popup/popup.html"

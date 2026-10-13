@@ -1,0 +1,32 @@
+/*
+ * Optional three-color title bar (Chrome tab / Google palette).
+ *
+ * VS Code and Cursor only accept solid colors in workbench.colorCustomizations.
+ * To use this gradient:
+ * 1. Install "Custom CSS and JS Loader" (be5invis.vscode-custom-css).
+ * 2. Add to user settings.json:
+ *    "vscode_custom_css.imports": [
+ *      "file:///absolute/path/to/.vscode/tab-group-nav-titlebar-gradient.css"
+ *    ]
+ * 3. Command Palette → "Reload Custom CSS and JS", then reload the window.
+ *
+ * Pair with the foreground colors in chrome-tab-group-navigation-extension.code-workspace.
+ */
+
+.monaco-workbench .part.titlebar {
+  background: linear-gradient(
+    90deg,
+    #aecbfa 0%,
+    #fbbc04 48%,
+    #a8dab5 100%
+  ) !important;
+}
+
+.monaco-workbench .part.titlebar.inactive {
+  background: linear-gradient(
+    90deg,
+    #c5dafc 0%,
+    #fce8a8 48%,
+    #ccebd4 100%
+  ) !important;
+}
