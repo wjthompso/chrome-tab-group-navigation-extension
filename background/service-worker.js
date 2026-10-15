@@ -1,6 +1,7 @@
 import { nextCollapsedForGroup, nextCollapsedValue } from "../lib/collapse-groups.js";
 import { clusterByDomain } from "../lib/domain-groups.js";
 import { openTabScene, saveTabScene } from "../lib/tab-scene-actions.js";
+import { handleSceneMessage } from "../lib/scene-message-handler.js";
 import { sceneSlotFromCommand } from "../lib/tab-scenes.js";
 import {
   ACTIVE_GROUP_ID_BY_WINDOW,
@@ -59,17 +60,13 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   const opening = message?.type === "open-tab-scene";
   const saving = message?.type === "save-tab-scene";
   if (!opening && !saving) return;
-  enqueue(async () => {
-    try {
-      const result = opening
-        ? await openTabScene(chrome, message.slot, message.windowId)
-        : await saveTabScene(chrome, message.slot, message.windowId);
-      sendResponse(result);
-    } catch (err) {
-      console.error(LOG, err);
-      const text = err instanceof Error ? err.message : String(err);
-      sendResponse({ ok: false, message: text, failedPages: 0 });
-    }
+  // Answer directly, not behind writeChain. The reply must not wait on the
+  // load-time snapshot or an unrelated command, or Chrome closes the message
+  // port and the popup sees "Receiving end does not exist."
+  handleSceneMessage(message, chrome).then(sendResponse).catch((err) => {
+    console.error(LOG, err);
+    const text = err instanceof Error ? err.message : String(err);
+    sendResponse({ ok: false, message: text, failedPages: 0 });
   });
   return true;
 });
